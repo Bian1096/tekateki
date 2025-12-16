@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Halaman</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ===== BODY ===== */
+body{
+    margin:0;
+    font-family:"Comic Sans MS", cursive;
+    background:url("https://i.imgur.com/7Y6h9mR.jpg") center/cover no-repeat;
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+/* ===== LOVE BACKGROUND (MERAH) ===== */
+.love{
+    position:fixed;
+    bottom:-30px;
+    color:red;
+    animation: float 6s linear forwards;
+    pointer-events:none;
+    z-index:1;
+    opacity:0.7;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0);
+        opacity:0;
+    }
+    20%{opacity:0.7;}
+    100%{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
+}
+
+/* ===== CARD ===== */
+.container{
+    position:relative;
+    z-index:2;
+    background:rgba(255,255,255,0.95);
+    padding:25px;
+    border-radius:20px;
+    width:90%;
+    max-width:450px;
+    text-align:center;
+    box-shadow:0 0 25px rgba(200,0,0,0.4);
+}
+
+/* ===== TITLE (MERAH PENUH) ===== */
+.title{
+    background:red;
+    color:white;
+    padding:14px;
+    border-radius:15px;
+    border:3px solid red;
+    margin-bottom:15px;
+    letter-spacing:1px;
+}
+
+/* ===== TIMER ===== */
+.timer{
+    font-size:18px;
+    color:red;
+    margin-bottom:10px;
+    font-weight:bold;
+}
+
+/* ===== QUESTION ===== */
+.question{
+    font-size:18px;
+    margin:10px 0;
+    color:#b00000;
+}
+
+/* ===== OPTION ===== */
+.option{
+    background:white;
+    color:red;
+    padding:10px;
+    margin:8px 0;
+    border-radius:15px;
+    cursor:pointer;
+    transition:0.3s;
+    border:2px solid red;
+}
+
+.option:hover{
+    background:red;
+    color:white;
+    transform:scale(1.03);
+}
+
+/* ===== BUTTON ===== */
+.buttons{
+    margin-top:15px;
+}
+
+button{
+    padding:8px 18px;
+    border:none;
+    border-radius:15px;
+    margin:5px;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.next{
+    background:red;
+    color:white;
+}
+
+.refresh{
+    background:white;
+    color:red;
+    border:2px solid red;
+}
+
+/* ===== SCORE ===== */
+.score{
+    margin-top:10px;
+    font-size:18px;
+    color:red;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1 class="title">Teka-Teki PG</h1>
+
+    <div class="timer">
+        Waktu: <span id="time">15</span> detik
+    </div>
+
+    <div class="question" id="question"></div>
+    <div id="options"></div>
+
+    <div class="buttons">
+        <button class="next" onclick="nextSoal()">Next</button>
+        <button class="refresh" onclick="refreshGame()">Refresh</button>
+    </div>
+
+    <div class="score" id="score">Skor: 0</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
